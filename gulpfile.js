@@ -7,7 +7,7 @@ var watchify = require('watchify')
 
 var config = {
 	js: {
-		entry: 'client/index.js',
+		entry: 'src/client/index.js',
 		dest: 'public'
 	}
 }
@@ -39,7 +39,7 @@ gulp.task('build', function buildJS () {
 	compile()
 })
 
-gulp.task('build:watch', function buildJS () {
+gulp.task('build:watch', function buildWatchJS () {
 	compile(true)
 })
 
