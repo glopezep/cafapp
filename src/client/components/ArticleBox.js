@@ -4,7 +4,7 @@ import ArticleList from './ArticleList'
 class ArticleBox extends Component {
   render () {
     return <section className='articleBox'>
-      <ArticleList />
+      <ArticleList data={this.props.data} />
     </section>
   }
 }

@@ -2,16 +2,16 @@ import React, { Component } from 'react'
 import AppHeader from './AppHeader'
 import AppFooter from './AppFooter'
 import ArticleBox from './ArticleBox'
+import "babel-polyfill"
 
-
-class App extends Component {
+class AppBox extends Component {
   constructor (props) {
     super(props)
     this.state = { data: [] }
-    this.loadArticlesFromServer = this.loadArticlesFromServer::this
+    this.loadArticlesFromServer = this.loadArticlesFromServer.bind(this)
   }
 
-  componentWillMount () {
+  componentDidMount () {
     this.loadArticlesFromServer()
   }
 
@@ -21,12 +21,12 @@ class App extends Component {
   }
 
   render () {
-    return <main className='app'>
+    return <section className='appBox'>
       <AppHeader />
-      <ArticleBox data={data} />
+      <ArticleBox data={this.state.data} />
       <AppFooter />
-    </main>
+    </section>
   }
 }
 
-export default App
+export default AppBox
