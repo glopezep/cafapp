@@ -1,8 +1,17 @@
 .articleList {
+  align-content: flex-start;
+  align-items: flex-start;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
   list-style-type: none;
 }
 
 
+.article {
+  width: 250px
+}
+
 .article img {
-  height: 150px;
+  width: 100%;
 }

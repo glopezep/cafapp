@@ -2,28 +2,25 @@ import React, { Component } from 'react'
 import AppHeader from './AppHeader'
 import AppFooter from './AppFooter'
 import ArticleBox from './ArticleBox'
-import "babel-polyfill"
+import OrderBox from './OrderBox'
 
 class AppBox extends Component {
   constructor (props) {
     super(props)
-    this.state = { data: [] }
-    this.loadArticlesFromServer = this.loadArticlesFromServer.bind(this)
+    this.state = { articles: [] }
+    this.handleArticle = this.handleArticle.bind(this)
   }
 
-  componentDidMount () {
-    this.loadArticlesFromServer()
-  }
-
-  async loadArticlesFromServer () {
-    let articles = await fetch('/api/articles').then(response => response.json())
-    this.setState({ data: articles })
+  handleArticle (article) {
+    var articles = this.state.articles
+    articles.push(article)
+    this.setState({ articles: articles })
   }
 
   render () {
     return <section className='appBox'>
       <AppHeader />
-      <ArticleBox data={this.state.data} />
+      <ArticleBox handleArticle={this.handleArticle} />
       <AppFooter />
     </section>
   }
