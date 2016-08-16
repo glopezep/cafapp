@@ -21,6 +21,7 @@ class AppBox extends Component {
     return <section className='appBox'>
       <AppHeader />
       <ArticleBox handleArticle={this.handleArticle} />
+      <OrderBox />
       <AppFooter />
     </section>
   }

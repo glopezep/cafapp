@@ -26,8 +26,28 @@ let articles = [
     image: 'http://www.indianfootballonline.com/img/sport/sport_318_test-201.gif'
   }
 ]
+
+let orders = [
+  {
+    id: 1,
+    articles: [{id: 1, cant: 7}, {id: 2, cant: 5}, {id: 3, cant: 2}],
+    completed: false
+  },
+  {
+    id: 2,
+    articles: [{id: 2, cant: 5}, {id: 3, cant: 2}],
+    completed: true
+  },
+  {
+    id: 3,
+    articles: [{id: 3, cant: 2}],
+    completed: true
+  }
+]
+
 app.use(express.static(`${__dirname}/public`))
 
 app.get('/api/articles', (req, res) => res.json(articles))
+app.get('/api/orders', (req, res) => res.json(orders))
 
 app.listen(port, () => console.log(`Server litening on port ${port}`))

@@ -8,7 +8,9 @@ class Order extends Component {
 
   render () {
     console.log('Me he rendereado')
-    return <li className='order'>
+    return <li className='order' onClick={this.props.sendOrder.bind(this, this.props.id)}>
+      <h1>{this.props.id}</h1>
+      <h1>{this.props.completed}</h1>
       <ArticleList articles={this.props.articles} />
     </li>
   }
