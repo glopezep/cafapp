@@ -153,5 +153,3 @@ class DB {
   putArticle () {}
   putOrder () {}
 }
-
-export new DB()
